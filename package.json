@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"deploy": "npm run build && git subtree push --prefix dist origin gh-pages",
+		"deploy": "npm run build && git subtree push --prefix dist origin gh-pages --force",
 		"preview": "vite preview",
 		"fonts": "node scripts/convert-fonts.js",
 		"img": "node scripts/convert-images.js",
