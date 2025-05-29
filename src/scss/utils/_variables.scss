@@ -1,12 +1,14 @@
 // Colors
-
-
-
 $primary-color: #3498db;
 $secondary-color: #2ecc71;
 $text-color: #333;
 $light-color: #f5f5f5;
 $dark-color: #222;
+$color-bg: #fff;
+$color-text: #181818;
+$color-accent: #111;
+$color-muted: #888;
+$color-border: #e5e5e5;
 
 // Breakpoints
 $breakpoint-sm: 576px;
@@ -21,18 +23,24 @@ $spacing-md: 1rem;
 $spacing-lg: 1.5rem;
 $spacing-xl: 2rem;
 
+$page-offset-top: 50px;
+$max-width: 700px;
+$line-height: 1.7;
+$headline-size: clamp(2.2rem, 5vw, 3.5rem);
+$subheadline-size: clamp(1.1rem, 2vw, 1.5rem);
+$h2-size: 1.5rem;
+$lead-size: 1.25rem;
+$padding: 2.5rem;
+
 // Fonts
 $font-montserrat: 'Montserrat';
 $font-opensans: 'OpenSans';
-
 $font-raleway: 'Raleway';
 $font-roboto: 'Roboto';
-
 $font-oswald: 'Oswald';
 $font-lato: 'Lato';
-
-
-
+$font-serif: 'Georgia', 'Times New Roman', Times, serif;
+$font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 
 // $font-primary: $font-montserrat;
 // $font-secondary: $font-opensans;
