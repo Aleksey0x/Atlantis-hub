@@ -30,37 +30,37 @@ function initializeSlideout() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-	const frame = document.getElementById("transition-frame");
-	const links = document.querySelectorAll(".transition-link");
+	// const frame = document.getElementById("transition-frame");
+	// const links = document.querySelectorAll(".transition-link");
 
-	// Уход со страницы
-	links.forEach(link => {
-		link.addEventListener("click", (e) => {
-			e.preventDefault();
-			const href = link.getAttribute("href");
+	// // Уход со страницы
+	// links.forEach(link => {
+	// 	link.addEventListener("click", (e) => {
+	// 		e.preventDefault();
+	// 		const href = link.getAttribute("href");
 
-			gsap.to(frame, {
-				top: 0,
-				duration: 0.7,
-				ease: "power2.inOut",
-				onComplete: () => {
-					window.location.href = href;
-				}
-			});
-		});
-	});
+	// 		gsap.to(frame, {
+	// 			top: 0,
+	// 			duration: 0.7,
+	// 			ease: "power2.inOut",
+	// 			onComplete: () => {
+	// 				window.location.href = href;
+	// 			}
+	// 		});
+	// 	});
+	// });
 
 	// Появление новой страницы
-	window.addEventListener("DOMContentLoaded", () => {
-		gsap.fromTo(frame,
-			{ top: 0 },
-			{
-				top: "-100%",
-				duration: 0.7,
-				ease: "power2.inOut"
-			}
-		);
-	});
+	// window.addEventListener("DOMContentLoaded", () => {
+	// 	gsap.fromTo(frame,
+	// 		{ top: 0 },
+	// 		{
+	// 			top: "-100%",
+	// 			duration: 0.7,
+	// 			ease: "power2.inOut"
+	// 		}
+	// 	);
+	// });
 	initializeSlideout();
 	console.log('js работает');
 });
