@@ -10,6 +10,7 @@ html {
 	background: vars.$color-bg;
 	color: vars.$color-text;
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 *,
@@ -28,6 +29,18 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	overflow-x: hidden;
+}
+
+#transition-frame {
+	position: fixed;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #111;
+	z-index: 9999;
+	pointer-events: none;
 }
 
 // Layout
@@ -142,7 +155,8 @@ blockquote {
 		padding: 0 vars.$padding;
 	}
 
-	$max-width: 95vw; /* This variable remains here as it's within a media query */
+	$max-width: 95vw;
+	/* This variable remains here as it's within a media query */
 }
 
 @media (max-width: 600px) {
@@ -151,28 +165,34 @@ blockquote {
 	}
 
 	.headline {
-		font-size: 2rem; /* This value is hardcoded, consider making it a variable */
+		font-size: 2rem;
+		/* This value is hardcoded, consider making it a variable */
 	}
 
 	.subheadline {
-		font-size: 1rem; /* This value is hardcoded, consider making it a variable */
+		font-size: 1rem;
+		/* This value is hardcoded, consider making it a variable */
 	}
 
 	.container {
-		padding: 0 0.8rem; /* This value is hardcoded, consider making it a variable */
+		padding: 0 0.8rem;
+		/* This value is hardcoded, consider making it a variable */
 	}
 
 	.lead {
-		font-size: 1.05rem; /* This value is hardcoded, consider making it a variable */
+		font-size: 1.05rem;
+		/* This value is hardcoded, consider making it a variable */
 	}
 
 	h2 {
-		font-size: 1.15rem; /* This value is hardcoded, consider making it a variable */
+		font-size: 1.15rem;
+		/* This value is hardcoded, consider making it a variable */
 	}
 
 	.meta {
 		flex-direction: column;
 		align-items: flex-start;
-		gap: 0.2em; /* This value is hardcoded, consider making it a variable */
+		gap: 0.2em;
+		/* This value is hardcoded, consider making it a variable */
 	}
 }
