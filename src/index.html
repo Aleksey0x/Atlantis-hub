@@ -4,32 +4,29 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="./src/js/main.js" type="module" defer></script>
+	<script src="/js/main.js" type="module" defer></script>
 	<title>Atlantis-hub</title>
 </head>
 
 <body>
 
 
-
-
-
 	<nav id="menu" class="nav-menu">
 		<ul class="menu-list">
 			<li>
-				<a class="nav-menu__item" href="index.html">
+				<a class="nav-menu__item" href="/">
 					Цифровая экосистема
 				</a>
 			</li>
 			<li>
-				<a class="nav-menu__item" href="pages/types.html">
+				<a class="nav-menu__item" href="/pages/types.html">
 					Типы Онлайн-Касс
 				</a>
 			</li>
 		</ul>
 	</nav>
 
-	<div class="menu-btn-wrapper">
+	<div class="menu-btn-wrapper sticky-header">
 		<button class="btn menu-btn" id="menu-button">навигация</button>
 	</div>
 
@@ -817,7 +814,10 @@
 		</footer>
 	</div>
 
-
+	<div class="section-nav">
+		<button id="prev-section" class="btn">&laquo; Назад</button>
+		<button id="next-section" class="btn">Далее &raquo;</button>
+	</div>
 
 </body>
 
