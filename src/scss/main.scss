@@ -5,6 +5,52 @@
 @use 'components/_button';
 // @use './fonts';
 
+// Стили для Barba.js переходов
+[data-barba="wrapper"] {
+	position: relative;
+}
+
+[data-barba="container"] {
+	opacity: 1;
+	transition: opacity 0.1s ease;
+}
+
+// Оверлей для анимации переходов
+.page-transition-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+	z-index: 9999;
+	pointer-events: none;
+	transform: translateX(100%);
+}
+
+// Предотвращение мигания при загрузке
+body {
+	margin: 0;
+	font-family: vars.$font-serif;
+	line-height: vars.$line-height;
+	background: vars.$color-bg;
+	color: vars.$color-text;
+	padding-top: vars.$page-offset-top;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	opacity: 0;
+	animation: fadeInBody 0.3s ease forwards;
+}
+
+@keyframes fadeInBody {
+	to {
+		opacity: 1;
+	}
+}
+
+// Стили для плавного скролла
 html {
 	box-sizing: border-box;
 	background: vars.$color-bg;
@@ -17,19 +63,6 @@ html {
 *::before,
 *::after {
 	box-sizing: inherit;
-}
-
-body {
-	margin: 0;
-	font-family: vars.$font-serif;
-	line-height: vars.$line-height;
-	background: vars.$color-bg;
-	color: vars.$color-text;
-	padding-top: vars.$page-offset-top;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	overflow-x: hidden;
 }
 
 #transition-frame {
