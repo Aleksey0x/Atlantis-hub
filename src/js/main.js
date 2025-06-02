@@ -271,9 +271,64 @@ function initializeSectionNavigation() {
 	});
 }
 
+/**
+ * Инициализация активного состояния пунктов меню навигации
+ * Определяет текущую страницу и добавляет соответствующий класс к пункту меню
+ */
+function initializeActiveNavigation() {
+	// Получаем все пункты меню навигации
+	const navItems = document.querySelectorAll('.nav-menu__item');
+
+	// Проверяем, есть ли пункты меню
+	if (!navItems.length) {
+		console.log('Пункты меню навигации не найдены.');
+		return;
+	}
+
+	// Получаем текущий путь страницы
+	const currentPath = window.location.pathname;
+	// Нормализуем путь (убираем слеши в начале и конце)
+	const normalizedPath = currentPath.replace(/^\/+|\/+$/g, '');
+
+	console.log('Текущий путь:', currentPath, 'Нормализованный:', normalizedPath);
+
+	// Проходим по всем пунктам меню
+	navItems.forEach(item => {
+		// Получаем href пункта меню
+		const href = item.getAttribute('href');
+		if (!href) return;
+
+		// Нормализуем href (убираем слеши, относительные пути)
+		let normalizedHref = href.replace(/^\.\.?\/+|\/+$/g, '');
+
+		// Обрабатываем специальные случаи
+		let isActive = false;
+
+		if (href === '/' || href === '/index.html' || href === '../index.html' || href === 'index.html') {
+			// Главная страница
+			isActive = (normalizedPath === '' || normalizedPath === 'index.html' || normalizedPath === 'src/index.html');
+		} else if (href.includes('types.html')) {
+			// Страница типов касс
+			isActive = normalizedPath.includes('types.html') || currentPath.includes('types.html');
+		} else {
+			// Для других страниц - точное сравнение
+			isActive = normalizedPath === normalizedHref;
+		}
+
+		// Добавляем или убираем класс активности
+		if (isActive) {
+			item.classList.add('nav-menu__item--active');
+			console.log('Активный пункт меню:', item.textContent.trim());
+		} else {
+			item.classList.remove('nav-menu__item--active');
+		}
+	});
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 	initializeSlideout();
 	initializeSectionNavigation();
+	initializeActiveNavigation();
 });
 
 // Main JavaScript file for the Atlantis-hub project

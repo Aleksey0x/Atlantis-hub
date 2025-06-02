@@ -238,3 +238,18 @@ body {
 	cursor: not-allowed;
 	border-color: #eee;
 }
+
+// Стили для активного пункта меню навигации
+.nav-menu__item--active {
+	background-color: #007bff !important;
+	color: white !important;
+	font-weight: bold;
+	border-radius: 4px;
+	padding: 8px 12px;
+	text-decoration: none;
+
+	&:hover {
+		background-color: #0056b3 !important;
+		color: white !important;
+	}
+}
