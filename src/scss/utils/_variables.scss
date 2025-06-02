@@ -40,13 +40,12 @@ $font-roboto: 'Roboto';
 $font-oswald: 'Oswald';
 $font-lato: 'Lato';
 $font-serif: 'Georgia', 'Times New Roman', Times, serif;
-$font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+$font-inter: 'Inter', Arial, sans-serif;
+
+$font-primary: $font-inter;
 
 // $font-primary: $font-montserrat;
 // $font-secondary: $font-opensans;
 
 // $font-primary: $font-raleway;
 // $font-secondary: $font-roboto;
-
-$font-primary: $font-oswald;
-$font-secondary: $font-raleway;

@@ -21,7 +21,7 @@ html {
 
 body {
 	margin: 0;
-	font-family: vars.$font-serif;
+	font-family: vars.$font-primary;
 	line-height: vars.$line-height;
 	background: vars.$color-bg;
 	color: vars.$color-text;
@@ -58,7 +58,7 @@ body {
 
 // Typography
 .headline {
-	font-family: vars.$font-serif;
+
 	font-size: vars.$headline-size;
 	font-weight: 700;
 	margin: 0 0 0.5rem 0;
@@ -67,7 +67,7 @@ body {
 }
 
 .subheadline {
-	font-family: vars.$font-sans;
+
 	font-size: vars.$subheadline-size;
 	color: vars.$color-muted;
 	margin: 0 0 1.2rem 0;
@@ -75,7 +75,7 @@ body {
 }
 
 .meta {
-	font-family: vars.$font-sans;
+
 	font-size: 0.95rem;
 	color: vars.$color-muted;
 	display: flex;
@@ -90,7 +90,7 @@ body {
 
 .lead {
 	font-size: vars.$lead-size;
-	font-family: vars.$font-sans;
+
 	color: vars.$color-accent;
 	margin: 2.5rem 0 2rem 0;
 	font-weight: 500;
@@ -99,7 +99,7 @@ body {
 h2 {
 	font-size: vars.$h2-size;
 	margin: 2.5rem 0 1rem 0;
-	font-family: vars.$font-sans;
+
 	font-weight: 600;
 	letter-spacing: -0.01em;
 	color: vars.$color-accent;
@@ -143,7 +143,7 @@ blockquote {
 	margin-top: auto;
 	padding: 2rem 0 1rem 0;
 	background: vars.$color-bg;
-	font-family: vars.$font-sans;
+
 	color: vars.$color-muted;
 	font-size: 0.95rem;
 	text-align: center;

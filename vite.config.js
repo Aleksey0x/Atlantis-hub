@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
+import svgLoader from 'vite-svg-loader';
 import createSvgSpritePlugin from 'vite-plugin-svg-sprite';
 import { resolve } from 'path'; // Импортируем resolve из 'path' для корректного определения путей
 

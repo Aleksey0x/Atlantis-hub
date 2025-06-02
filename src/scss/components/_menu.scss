@@ -10,7 +10,7 @@ html {
 	color: rgb(0, 0, 0);
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
-	font-family: vars.$font-sans;
+
 	cursor: pointer;
 }
 
@@ -30,7 +30,7 @@ html {
 }
 
 .nav-menu {
-	font-family: vars.$font-sans;
+
 	padding-top: vars.$page-offset-top;
 
 	&__item {
