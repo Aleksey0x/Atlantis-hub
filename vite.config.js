@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
-import svgLoader from 'vite-svg-loader';
 import createSvgSpritePlugin from 'vite-plugin-svg-sprite';
 import { resolve } from 'path'; // Импортируем resolve из 'path' для корректного определения путей
+import glob from 'glob'; // Импортируем glob (default import for CJS compatibility)
 
 export default defineConfig({
+	root: resolve(__dirname, 'src'), // <-- ИЗМЕНЕНИЕ: Устанавливаем корень проекта в 'src'
 	// Настройки сервера разработки
 	server: {
 		port: 3000,        // Порт, на котором будет запущен сервер разработки
@@ -38,17 +39,18 @@ export default defineConfig({
 							removeAll: true,
 						},
 						reduceIdents: false, // Безопаснее для анимаций
-						zindex: false, // Не трогать z-index
+						zIndex: false, // Не трогать z-index
 					}]
 				})
 			],
 		},
 		// Извлечение CSS для лучшего кеширования
-		extract: true,
+		// extract: true, // Для dev-режима с root: 'src' может не требоваться или вызывать проблемы с путями, проверяем. Vite по умолчанию обрабатывает CSS корректно.
 	},
 
 	// Настройки сборки
 	build: {
+		outDir: resolve(__dirname, 'dist'), // <-- ИЗМЕНЕНИЕ: Явно указываем выходную директорию относительно корня проекта (где vite.config.js)
 		emptyOutDir: true, // Очищает папку dist перед сборкой
 		minify: 'terser',  // Использовать Terser для минификации JavaScript
 		cssMinify: true,   // Минифицировать CSS
@@ -82,8 +84,17 @@ export default defineConfig({
 			// Настройки для входных файлов
 			input: {
 				// Определяем точки входа для многостраничного режима
-				main: resolve(__dirname, 'index.html'), // Главная страница
-				types: resolve(__dirname, 'pages/types.html'),
+				// main: resolve(__dirname, 'index.html'), // <-- ИЗМЕНЕНИЕ: Было (относительно корня проекта)
+				main: resolve(__dirname, 'src/index.html'), // <-- ИЗМЕНЕНИЕ: Стало (относительно корня проекта, указываем на файл в src)
+				// types: resolve(__dirname, 'pages/types.html'), // <-- ИЗМЕНЕНИЕ: Было
+				// Динамически добавляем все HTML файлы из src/pages
+				...Object.fromEntries(
+					glob.sync(resolve(__dirname, 'src/pages/**/*.html')).map(file => [
+						// Имя точки входа: pages/filename (без .html)
+						file.slice(resolve(__dirname, 'src/').length + 1, file.length - '.html'.length),
+						file
+					])
+				)
 			},
 
 			// Настройки для сборки
@@ -142,15 +153,27 @@ export default defineConfig({
 	},
 
 	// Настройки для путей и плагинов
-	base: './',
+	publicDir: resolve(__dirname, 'public'), // <-- ИЗМЕНЕНИЕ: Явно указываем папку public относительно корня проекта
+	base: './', // Оставляем './' для корректных относительных путей в собранном проекте
 
 	plugins: [
 		// Плагин для создания SVG спрайта
 		createSvgSpritePlugin({
 			exportType: 'vanilla',
-			include: '**/icons/*.svg'
+			// include: '**/icons/*.svg' // <-- ИЗМЕНЕНИЕ: Было (относительно корня проекта)
+			include: 'assets/icons/**/*.svg' // <-- ИЗМЕНЕНИЕ: Путь теперь относительно root ('src')
 		}),
 	],
+
+	resolve: { // <-- ИЗМЕНЕНИЕ: Добавляем секцию resolve для алиасов, если понадобятся
+		alias: {
+			'@': resolve(__dirname, 'src'),
+			'@img': resolve(__dirname, 'src/assets/images'),
+			'@fonts': resolve(__dirname, 'src/assets/fonts'),
+			'@js': resolve(__dirname, 'src/js'),
+			'@css': resolve(__dirname, 'src/css'),
+		}
+	},
 
 	optimizeDeps: {
 		include: ['gsap', 'slideout'], // Предварительная оптимизация
