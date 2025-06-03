@@ -33,19 +33,9 @@ $lead-size: 1.25rem;
 $padding: 2.5rem;
 
 // Fonts
-$font-montserrat: 'Montserrat';
-$font-opensans: 'OpenSans';
-$font-raleway: 'Raleway';
-$font-roboto: 'Roboto';
-$font-oswald: 'Oswald';
-$font-lato: 'Lato';
-$font-serif: 'Georgia', 'Times New Roman', Times, serif;
-$font-inter: 'Inter', Arial, sans-serif;
+$font-EBGaramond: 'EBGaramond';
+$font-Inter: 'Inter_18pt';
 
-$font-primary: $font-inter;
 
-// $font-primary: $font-montserrat;
-// $font-secondary: $font-opensans;
-
-// $font-primary: $font-raleway;
-// $font-secondary: $font-roboto;
+$font-primary: $font-EBGaramond;
+$font-secondary: $font-Inter;

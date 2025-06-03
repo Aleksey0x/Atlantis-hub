@@ -3,7 +3,7 @@
 @use 'utils/_mixins' as mix;
 @use 'components/_menu';
 @use 'components/_button';
-// @use './fonts';
+@use 'fonts';
 
 html {
 	box-sizing: border-box;
@@ -32,15 +32,32 @@ body {
 	overflow-x: hidden;
 }
 
-#transition-frame {
-	position: fixed;
-	top: 100%;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #111;
-	z-index: 9999;
-	pointer-events: none;
+// Typography
+.headline {
+	font-size: clamp(2.8rem, 6vw, 3.5rem);
+	/* 44.8px — 56px */
+	font-weight: 700;
+	margin: 0 0 0.5rem 0;
+	letter-spacing: -0.01em;
+	line-height: 1.1;
+	font-family: vars.$font-primary;
+}
+
+h2 {
+	font-size: clamp(2rem, 4.5vw, 2.8rem) !important;
+	font-family: vars.$font-primary;
+	/* 32px — 44.8px */
+	line-height: 1.4;
+}
+
+h3 {
+	font-size: clamp(1.25rem, 2vw, 1.5rem) !important;
+	/* 20–24px */
+	font-weight: 600;
+	margin-top: 2.5rem;
+	/* чтоб отделялся от h2 */
+	margin-bottom: 0.8rem;
+	line-height: 1.4;
 }
 
 // Layout
@@ -56,15 +73,7 @@ body {
 	background: vars.$color-bg;
 }
 
-// Typography
-.headline {
 
-	font-size: vars.$headline-size;
-	font-weight: 700;
-	margin: 0 0 0.5rem 0;
-	letter-spacing: -0.01em;
-	line-height: 1.1;
-}
 
 .subheadline {
 
@@ -194,5 +203,62 @@ blockquote {
 		align-items: flex-start;
 		gap: 0.2em;
 		/* This value is hardcoded, consider making it a variable */
+	}
+}
+
+/* Main CSS file for the Atlantis-hub project */
+body {
+	font-family: sans-serif;
+	margin-bottom: 80px;
+	position: relative;
+	/* Добавляем отступ снизу, чтобы кнопки не перекрывали контент */
+}
+
+.section-nav {
+	position: fixed;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 10px;
+	z-index: 1000;
+	background-color: rgba(255, 255, 255, 0.9);
+	padding: 10px 15px;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-nav .btn {
+	padding: 8px 15px;
+	border: 1px solid #ccc;
+	background-color: #f0f0f0;
+	cursor: pointer;
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+.section-nav .btn:hover {
+	background-color: #e0e0e0;
+}
+
+.section-nav .btn:disabled {
+	background-color: #f8f8f8;
+	color: #aaa;
+	cursor: not-allowed;
+	border-color: #eee;
+}
+
+// Стили для активного пункта меню навигации
+.nav-menu__item--active {
+	background-color: #007bff !important;
+	color: white !important;
+	font-weight: bold;
+	border-radius: 4px;
+	padding: 8px 12px;
+	text-decoration: none;
+
+	&:hover {
+		background-color: #0056b3 !important;
+		color: white !important;
 	}
 }

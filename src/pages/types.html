@@ -4,25 +4,32 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../src/css/bootstrap-grid.css">
-	<script src="../src/js/main.js" type="module" defer></script>
+	<script src="../js/main.js" type="module" defer></script>
 	<title>Типы Онлайн-Касс</title>
 </head>
 
 <body>
 
-
 	<nav id="menu" class="nav-menu">
 		<ul class="menu-list">
-			<li><a class="nav-menu__item" href="../index.html">Цифровая экосистема <br> бизнеса</a></li>
-			<li><a class="nav-menu__item" href="types.html">Типы Онлайн-Касс</a></li>
-
-
+			<li>
+				<a class="nav-menu__item" href="../index.html">
+					Цифровая экосистема
+				</a>
+			</li>
+			<li>
+				<a class="nav-menu__item" href="types.html">
+					Типы Онлайн-Касс
+				</a>
+			</li>
 		</ul>
 	</nav>
-	<div class="menu-btn-wrapper">
+
+	<div class="menu-btn-wrapper sticky-header">
 		<button class="btn menu-btn" id="menu-button">навигация</button>
 	</div>
+
+	<div id="transition-frame"></div>
 
 	<div id="panel">
 		<header class="article-header">
@@ -35,7 +42,6 @@
 						<span class="dot">•</span>
 						<time datetime="2024-06-01">21 мая 2025</time>
 					</div>
-
 				</div>
 			</div>
 		</header>
@@ -213,7 +219,8 @@
 					</ul>
 
 					<h2>Сравнительная таблица типов онлайн-касс</h2>
-					<table class="d-md-table d-none" style="width:100%;border-collapse:collapse;margin:1.5em 0;font-size:1rem;">
+					<table class="d-md-table d-none"
+						style="width:100%;border-collapse:collapse;margin:1.5em 0;font-size:1rem;">
 						<thead style="background:#fafafa;border-bottom:1px solid #e5e5e5;">
 							<tr>
 								<th style="text-align:left;padding:0.5em 1em;">Характеристика</th>
@@ -294,13 +301,17 @@
 
 				</section>
 			</article>
-
-			<footer class="footer">
-				<div class="container">
-					<span>© 2024 Aleksey Ostapchenko Style. Все права защищены.</span>
-				</div>
-			</footer>
 		</main>
+		<footer class="footer">
+			<div class="container">
+				<span>© 2024 Aleksey Ostapchenko Style. Все права защищены.</span>
+			</div>
+		</footer>
+	</div>
+
+	<div class="section-nav">
+		<button id="prev-section" class="btn">&laquo; Назад</button>
+		<button id="next-section" class="btn">Далее &raquo;</button>
 	</div>
 
 </body>
