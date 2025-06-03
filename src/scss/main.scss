@@ -8,7 +8,6 @@
 html {
 	box-sizing: border-box;
 	background: vars.$color-bg;
-	color: vars.$color-text;
 	scroll-behavior: smooth;
 	overflow-x: hidden;
 }
@@ -21,20 +20,22 @@ html {
 
 body {
 	margin: 0;
-	font-family: vars.$font-primary;
+	font-family: vars.$font-secondary;
+	font-size: 16px;
 	line-height: vars.$line-height;
 	background: vars.$color-bg;
 	color: vars.$color-text;
 	padding-top: vars.$page-offset-top;
 	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
+	padding-bottom: 80px;
+	position: relative;
 	overflow-x: hidden;
 }
 
 // Typography
 .headline {
-	font-size: clamp(2.8rem, 6vw, 3.5rem);
+	font-size: clamp(2.8rem, 6vw, 5rem);
+
 	/* 44.8px — 56px */
 	font-weight: 700;
 	margin: 0 0 0.5rem 0;
@@ -48,6 +49,10 @@ h2 {
 	font-family: vars.$font-primary;
 	/* 32px — 44.8px */
 	line-height: 1.4;
+	margin: 2.5rem 0 1rem 0;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	color: vars.$color-accent;
 }
 
 h3 {
@@ -60,7 +65,6 @@ h3 {
 	line-height: 1.4;
 }
 
-// Layout
 .container {
 	max-width: vars.$max-width;
 	margin: 0 auto;
@@ -73,10 +77,7 @@ h3 {
 	background: vars.$color-bg;
 }
 
-
-
 .subheadline {
-
 	font-size: vars.$subheadline-size;
 	color: vars.$color-muted;
 	margin: 0 0 1.2rem 0;
@@ -90,7 +91,6 @@ h3 {
 	display: flex;
 	align-items: center;
 	gap: 0.5em;
-
 	.dot {
 		font-size: 1.2em;
 		line-height: 0;
@@ -105,14 +105,7 @@ h3 {
 	font-weight: 500;
 }
 
-h2 {
-	font-size: vars.$h2-size;
-	margin: 2.5rem 0 1rem 0;
 
-	font-weight: 600;
-	letter-spacing: -0.01em;
-	color: vars.$color-accent;
-}
 
 p {
 	margin: 1.2em 0;
@@ -152,7 +145,6 @@ blockquote {
 	margin-top: auto;
 	padding: 2rem 0 1rem 0;
 	background: vars.$color-bg;
-
 	color: vars.$color-muted;
 	font-size: 0.95rem;
 	text-align: center;
@@ -206,13 +198,7 @@ blockquote {
 	}
 }
 
-/* Main CSS file for the Atlantis-hub project */
-body {
-	font-family: sans-serif;
-	margin-bottom: 80px;
-	position: relative;
-	/* Добавляем отступ снизу, чтобы кнопки не перекрывали контент */
-}
+
 
 .section-nav {
 	position: fixed;
@@ -249,16 +235,3 @@ body {
 }
 
 // Стили для активного пункта меню навигации
-.nav-menu__item--active {
-	background-color: #007bff !important;
-	color: white !important;
-	font-weight: bold;
-	border-radius: 4px;
-	padding: 8px 12px;
-	text-decoration: none;
-
-	&:hover {
-		background-color: #0056b3 !important;
-		color: white !important;
-	}
-}

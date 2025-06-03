@@ -56,7 +56,7 @@ function initializeSectionNavigation() {
 
 
 		// Если хедер найден, возвращаем его высоту
-		console.log(header);
+		
 		if (header) {
 			const rect = header.getBoundingClientRect();
 			return rect.height;
@@ -110,7 +110,8 @@ function initializeSectionNavigation() {
 		// Получаем позицию секции относительно документа
 		const sectionTop = targetSection.offsetTop;
 		// Вычисляем финальную позицию с учетом липкого хедера и небольшого отступа
-		const finalScrollPosition = sectionTop - stickyHeaderHeight;
+		// const finalScrollPosition = sectionTop - stickyHeaderHeight;
+		const finalScrollPosition = sectionTop;
 
 		// Выполняем плавную прокрутку
 		window.scrollTo({
