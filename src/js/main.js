@@ -288,10 +288,10 @@ function initializeActiveNavigation() {
 
 	// Получаем текущий путь страницы
 	const currentPath = window.location.pathname;
-	// Нормализуем путь (убираем слеши в начале и конце)
-	const normalizedPath = currentPath.replace(/^\/+|\/+$/g, '');
-
-	console.log('Текущий путь:', currentPath, 'Нормализованный:', normalizedPath);
+	// Получаем имя текущего файла
+	const currentFile = currentPath.split('/').pop() || 'index.html';
+	
+	console.log('Текущий путь:', currentPath, 'Текущий файл:', currentFile);
 
 	// Проходим по всем пунктам меню
 	navItems.forEach(item => {
@@ -299,21 +299,21 @@ function initializeActiveNavigation() {
 		const href = item.getAttribute('href');
 		if (!href) return;
 
-		// Нормализуем href (убираем слеши, относительные пути)
-		let normalizedHref = href.replace(/^\.\.?\/+|\/+$/g, '');
-
-		// Обрабатываем специальные случаи
+		// Получаем имя файла из href
+		const hrefFile = href.split('/').pop() || 'index.html';
+		
+		// Определяем активность
 		let isActive = false;
 
-		if (href === '/' || href === '/index.html' || href === '../index.html' || href === 'index.html') {
+		if (href === 'index.html' || href === '../index.html') {
 			// Главная страница
-			isActive = (normalizedPath === '' || normalizedPath === 'index.html' || normalizedPath === 'src/index.html');
+			isActive = (currentFile === 'index.html' || currentFile === '' || currentPath === '/' || currentPath.endsWith('index.html'));
 		} else if (href.includes('types.html')) {
-			// Страница типов касс
-			isActive = normalizedPath.includes('types.html') || currentPath.includes('types.html');
+			// Страница типов касс  
+			isActive = currentPath.includes('types.html') || currentFile === 'types.html';
 		} else {
-			// Для других страниц - точное сравнение
-			isActive = normalizedPath === normalizedHref;
+			// Для других страниц - сравниваем имена файлов
+			isActive = currentFile === hrefFile;
 		}
 
 		// Добавляем или убираем класс активности

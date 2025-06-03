@@ -10,7 +10,7 @@
 		"preview": "vite preview",
 		"fonts": "node scripts/convert-fonts.js",
 		"img": "node scripts/convert-images.js",
-		"svg-sprite": "node scripts/generate-svg-sprite.js",
+		"svg": "node scripts/generate-svg-sprite.js",
 		"assets": "npm run fonts && npm run images && npm run svg-sprite"
 	},
 	"devDependencies": {

@@ -7,9 +7,8 @@ html {
 
 .menu-btn {
 	background-color: transparent;
-	color: rgb(0, 0, 0);
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+	border: none;
+
 
 	cursor: pointer;
 }
@@ -27,6 +26,8 @@ html {
 	align-items: center;
 	justify-content: center;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
 }
 
 .nav-menu {
