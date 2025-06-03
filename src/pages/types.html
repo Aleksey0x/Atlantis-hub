@@ -10,29 +10,29 @@
 
 <body>
 
-	<nav id="menu" class="nav-menu">
-		<ul class="menu-list">
-			<li>
-				<a class="nav-menu__item" href="../index.html">
+	<nav id="menu" class="navigation">
+		<ul class="navigation__list">
+			<li class="navigation__item">
+				<a class="navigation__link" href="../index.html">
 					Цифровая экосистема
 				</a>
 			</li>
-			<li>
-				<a class="nav-menu__item" href="types.html">
+			<li class="navigation__item">
+				<a class="navigation__link" href="types.html">
 					Типы Онлайн-Касс
 				</a>
 			</li>
-			<li>
-				<a class="nav-menu__item" href="ekvajring.html">
+			<li class="navigation__item">
+				<a class="navigation__link" href="ekvajring.html">
 					Эквайринг
 				</a>
 			</li>
 		</ul>
 	</nav>
 
-	<div class="menu-btn-wrapper sticky-header">
-		<button class="btn menu-btn" id="menu-button">
-			<svg class="icon">
+	<div class="navigation__toggle-wrapper">
+		<button class="navigation__toggle" id="menu-button">
+			<svg class="icon icon--menu">
 				<use xlink:href="../images/icons/sprite.svg#menu"></use>
 			</svg>
 		</button>
@@ -321,10 +321,10 @@
 		</footer>
 	</div>
 
-	<div class="section-nav">
-		<button id="prev-section" class="btn">&laquo; Назад</button>
-		<button id="next-section" class="btn">Далее &raquo;</button>
-	</div>
+	<nav class="section-nav">
+		<button class="section-nav__button section-nav__button--prev" id="prev-section">&laquo; Назад</button>
+		<button class="section-nav__button section-nav__button--next" id="next-section">Далее &raquo;</button>
+	</nav>
 
 </body>
 

@@ -32,7 +32,7 @@ function initializeSlideout() {
 function initializeSectionNavigation() {
 	// Получаем все секции статьи
 	const sections = Array.from(document.querySelectorAll('article.container > section'));
-	// Получаем кнопки навигации
+	// Получаем кнопки навигации (обновлено для БЭМ)
 	const prevButton = document.getElementById('prev-section');
 	const nextButton = document.getElementById('next-section');
 
@@ -51,12 +51,10 @@ function initializeSectionNavigation() {
 	 * @returns {number} Высота хедера в пикселях
 	 */
 	function getStickyHeaderHeight() {
-		// Ищем липкий хедер по различным селекторам
-		const header = document.querySelector('.sticky-header');
-
+		// Ищем липкий хедер по новому БЭМ селектору
+		const header = document.querySelector('.navigation__toggle-wrapper');
 
 		// Если хедер найден, возвращаем его высоту
-		
 		if (header) {
 			const rect = header.getBoundingClientRect();
 			return rect.height;
@@ -277,8 +275,8 @@ function initializeSectionNavigation() {
  * Определяет текущую страницу и добавляет соответствующий класс к пункту меню
  */
 function initializeActiveNavigation() {
-	// Получаем все пункты меню навигации
-	const navItems = document.querySelectorAll('.nav-menu__item');
+	// Получаем все пункты меню навигации (обновлено для БЭМ)
+	const navItems = document.querySelectorAll('.navigation__link');
 
 	// Проверяем, есть ли пункты меню
 	if (!navItems.length) {
@@ -316,12 +314,12 @@ function initializeActiveNavigation() {
 			isActive = currentFile === hrefFile;
 		}
 
-		// Добавляем или убираем класс активности
+		// Добавляем или убираем класс активности (обновлено для БЭМ)
 		if (isActive) {
-			item.classList.add('nav-menu__item--active');
+			item.classList.add('navigation__link--active');
 			console.log('Активный пункт меню:', item.textContent.trim());
 		} else {
-			item.classList.remove('nav-menu__item--active');
+			item.classList.remove('navigation__link--active');
 		}
 	});
 }

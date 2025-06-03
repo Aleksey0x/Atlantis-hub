@@ -35,8 +35,6 @@ body {
 // Typography
 .headline {
 	font-size: clamp(2.8rem, 6vw, 5rem);
-
-	/* 44.8px — 56px */
 	font-weight: 700;
 	margin: 0 0 0.5rem 0;
 	letter-spacing: -0.01em;
@@ -47,7 +45,6 @@ body {
 h2 {
 	font-size: clamp(2rem, 4.5vw, 2.8rem) !important;
 	font-family: vars.$font-primary;
-	/* 32px — 44.8px */
 	line-height: 1.4;
 	margin: 2.5rem 0 1rem 0;
 	font-weight: 600;
@@ -57,10 +54,8 @@ h2 {
 
 h3 {
 	font-size: clamp(1.25rem, 2vw, 1.5rem) !important;
-	/* 20–24px */
 	font-weight: 600;
 	margin-top: 2.5rem;
-	/* чтоб отделялся от h2 */
 	margin-bottom: 0.8rem;
 	line-height: 1.4;
 }
@@ -85,12 +80,12 @@ h3 {
 }
 
 .meta {
-
 	font-size: 0.95rem;
 	color: vars.$color-muted;
 	display: flex;
 	align-items: center;
 	gap: 0.5em;
+	
 	.dot {
 		font-size: 1.2em;
 		line-height: 0;
@@ -99,7 +94,6 @@ h3 {
 
 .lead {
 	font-size: vars.$lead-size;
-
 	color: vars.$color-accent;
 	margin: 2.5rem 0 2rem 0;
 	font-weight: 500;
@@ -113,8 +107,6 @@ h3 {
 	display: inline-block; // Добавьте это
 	vertical-align: middle; 
 }
-
-
 
 p {
 	margin: 1.2em 0;
@@ -139,14 +131,6 @@ blockquote {
 	position: relative;
 }
 
-.quote-author {
-	display: block;
-	margin-top: 0.5em;
-	font-size: 0.95em;
-	color: vars.$color-accent;
-	font-style: normal;
-	font-weight: 500;
-}
 
 // Footer
 .footer {
@@ -159,51 +143,7 @@ blockquote {
 	text-align: center;
 }
 
-// Media Queries
-@media (max-width: 900px) {
-	.container {
-		padding: 0 vars.$padding;
-	}
-
-	$max-width: 95vw;
-	/* This variable remains here as it's within a media query */
-}
-
-@media (max-width: 600px) {
-	.article-header {
-		padding: 2rem 0 1rem 0;
-	}
-
-	.headline {
-		font-size: 2rem;
-		/* This value is hardcoded, consider making it a variable */
-	}
-
-	.subheadline {
-		font-size: 1rem;
-		/* This value is hardcoded, consider making it a variable */
-	}
-
-	.container {
-		padding: 0 0.8rem;
-		/* This value is hardcoded, consider making it a variable */
-	}
-
-	.lead {
-		font-size: 1.05rem;
-		/* This value is hardcoded, consider making it a variable */
-	}
-
-	h2 {
-		// font-size: 1.15rem;
-		/* This value is hardcoded, consider making it a variable */
-	}
-
-
-}
-
-
-
+// Section Navigation Block
 .section-nav {
 	position: fixed;
 	bottom: 20px;
@@ -216,26 +156,66 @@ blockquote {
 	padding: 10px 15px;
 	border-radius: 8px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+	&__button {
+		padding: 8px 15px;
+		border: 1px solid #ccc;
+		background-color: #f0f0f0;
+		cursor: pointer;
+		border-radius: 4px;
+		font-size: 14px;
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			background-color: #e0e0e0;
+		}
+
+		&:disabled,
+		&--disabled {
+			background-color: #f8f8f8;
+			color: #aaa;
+			cursor: not-allowed;
+			border-color: #eee;
+		}
+
+		&--prev {
+			// Специфичные стили для кнопки "Назад"
+		}
+
+		&--next {
+			// Специфичные стили для кнопки "Далее"
+		}
+	}
 }
 
-.section-nav .btn {
-	padding: 8px 15px;
-	border: 1px solid #ccc;
-	background-color: #f0f0f0;
-	cursor: pointer;
-	border-radius: 4px;
-	font-size: 14px;
+// Media Queries
+@media (max-width: 900px) {
+	.container {
+		padding: 0 vars.$padding;
+	}
+
+	$max-width: 95vw;
 }
 
-.section-nav .btn:hover {
-	background-color: #e0e0e0;
-}
+@media (max-width: 600px) {
+	.article-header {
+		padding: 2rem 0 1rem 0;
+	}
 
-.section-nav .btn:disabled {
-	background-color: #f8f8f8;
-	color: #aaa;
-	cursor: not-allowed;
-	border-color: #eee;
-}
+	.headline {
+		font-size: 2rem;
+	}
 
-// Стили для активного пункта меню навигации
+	.subheadline {
+		font-size: 1rem;
+	}
+
+	.container {
+		padding: 0 0.8rem;
+	}
+
+	.lead {
+		font-size: 1.05rem;
+	}
+}
