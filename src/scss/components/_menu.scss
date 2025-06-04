@@ -11,8 +11,8 @@ html {
 
 	&__list {
 		list-style: none;
-		margin: 0;
-		padding: 0;
+		// margin: 0;
+		// padding: 0;
 	}
 
 	&__item {
@@ -34,24 +34,24 @@ html {
 	}
 
 	&__toggle {
-		background-color: transparent;
-		border: none;
-		cursor: pointer;
-	}
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
 
 	&__toggle-wrapper {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: vars.$page-offset-top;
-		width: 100%;
-		z-index: 10000;
-		background-color: #FFF;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: vars.$page-offset-top;
+	width: 100%;
+	z-index: 10000;
+	background-color: #FFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	}
 }
 
@@ -60,13 +60,13 @@ html {
 	width: 36px;
 	height: 36px;
 	fill: black;
-	display: inline-block;
+		display: inline-block;
 	vertical-align: middle;
 
 	&--menu {
 		// Специфичные стили для иконки меню
+		}
 	}
-}
 
 // Slideout menu styles (keeping existing functionality)
 .slideout-menu {
@@ -75,7 +75,7 @@ html {
 	bottom: 0;
 	width: 320px;
 	min-height: 100vh;
-	overflow-y: scroll;
+	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	z-index: 0;
 	display: none;
