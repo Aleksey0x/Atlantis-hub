@@ -6,35 +6,45 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Типы Онлайн-Касс</title>
   <script type="module" crossorigin src="../assets/js/vendor-CHECDXl6.js"></script>
-  <script type="module" crossorigin src="../assets/js/main-DZ_pVNeT.js"></script>
-  <link rel="stylesheet" crossorigin href="../assets/css/main-ul1ckaOj.css">
+  <script type="module" crossorigin src="../assets/js/main-UyyxjXSM.js"></script>
+  <link rel="stylesheet" crossorigin href="../assets/css/main-DorLCbHV.css">
 </head>
 
 <body>
 
-	<nav id="menu" class="nav-menu">
-		<ul class="menu-list">
-			<li>
-				<a class="nav-menu__item" href="../index.html">
+	<nav id="menu" class="navigation">
+		<ul class="navigation__list">
+			<li class="navigation__item">
+				<a class="navigation__link" href="../index.html">
 					Цифровая экосистема
 				</a>
 			</li>
-			<li>
-				<a class="nav-menu__item" href="types.html">
+			<li class="navigation__item">
+				<a class="navigation__link" href="types.html">
 					Типы Онлайн-Касс
 				</a>
 			</li>
-			<li>
-				<a class="nav-menu__item" href="ekvajring.html">
+			<li class="navigation__item">
+				<a class="navigation__link" href="ekvajring.html">
 					Эквайринг
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="fn.html">
+					Фискальный накопитель
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="electronic-signature.html">
+					Электронная подпись
 				</a>
 			</li>
 		</ul>
 	</nav>
 
-	<div class="menu-btn-wrapper sticky-header">
-		<button class="btn menu-btn" id="menu-button">
-			<svg class="icon">
+	<div class="navigation__toggle-wrapper">
+		<button class="navigation__toggle" id="menu-button">
+			<svg class="icon icon--menu" width="36" height="36">
 				<use xlink:href="../assets/images/sprite-C5XqCnJ3.svg#menu"></use>
 			</svg>
 		</button>
@@ -323,10 +333,10 @@
 		</footer>
 	</div>
 
-	<div class="section-nav">
-		<button id="prev-section" class="btn">&laquo; Назад</button>
-		<button id="next-section" class="btn">Далее &raquo;</button>
-	</div>
+	<nav class="section-nav">
+		<button class="section-nav__button section-nav__button--prev" id="prev-section">&laquo; Назад</button>
+		<button class="section-nav__button section-nav__button--next" id="next-section">Далее &raquo;</button>
+	</nav>
 
 </body>
 
