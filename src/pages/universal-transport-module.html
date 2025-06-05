@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../scss/main.scss">
+	<script src="/js/main.js" type="module" defer></script>
+	<title>Универсальный транспортный модуль (УТМ) - Atlantis-hub</title>
+</head>
+
+<body>
+
+	<nav id="menu" class="navigation">
+		<ul class="navigation__list">
+			<li class="navigation__item">
+				<a class="navigation__link" href="../index.html">
+					Цифровая экосистема
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="types.html">
+					Типы Онлайн-Касс
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="universal-transport-module.html">
+					УТМ
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="cryptopro.html">
+					CryptoPro CSP
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="ekvajring.html">
+					Эквайринг
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="fn.html">
+					Фискальный накопитель
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="electronic-signature.html">
+					Электронная подпись
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="pos.html">
+					POS-терминалы
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="scanner.html">
+					Сканеры штрихкодов
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="scales.html">
+					Торговые весы
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="navigation__toggle-wrapper">
+		<button class="navigation__toggle" id="menu-button">
+			<svg class="icon icon--menu" width="36" height="36">
+				<use xlink:href="../images/icons/sprite.svg#menu"></use>
+			</svg>
+		</button>
+	</div>
+
+	<div id="panel">
+
+		<header class="article-header">
+			<div class="container">
+				<h1 class="headline">Универсальный транспортный модуль (УТМ) в САБИ Ритейл</h1>
+				<p class="subheadline">Полное руководство по установке, настройке и использованию УТМ для обеспечения легального оборота алкогольной продукции.
+				</p>
+				<div class="meta">
+					<div>
+						<span class="author">
+							Atlantis
+						</span>
+					</div>
+					<div>
+						<span class="dot">•</span>
+						<time datetime="2024-06-01">21 мая 2025</time>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<article class="container">
+				<section>
+					<h2>Что такое УТМ простыми словами</h2>
+					<div class="lead">
+						<p>Универсальный транспортный модуль (УТМ) — это специальная программа, разработанная Федеральной службой по регулированию алкогольного рынка (ФСРАР).</p>
+					</div>
+					<p>Она обеспечивает автоматический обмен данными между вашей торговой системой и государственной системой ЕГАИС (Единая государственная автоматизированная информационная система).</p>
+					
+					<blockquote>
+						Простыми словами, УТМ — это "почтовый курьер", который отправляет и получает документы (например, накладные, акты списания) в формате XML между вашей системой и ЕГАИС.
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Зачем нужен УТМ и его роль в передаче данных в ЕГАИС</h2>
+					<p>УТМ необходим для соблюдения законодательства при торговле алкогольной продукцией. Его основные функции:</p>
+					
+					<ul>
+						<li><strong>Передача данных о закупке и продаже алкоголя в ЕГАИС</strong></li>
+						<li><strong>Получение подтверждений от ЕГАИС</strong> о приёме документов</li>
+						<li><strong>Обеспечение легальности операций</strong> с алкоголем</li>
+					</ul>
+
+					<blockquote>
+						Без УТМ невозможно легально продавать алкогольную продукцию, так как данные о каждой операции должны быть зафиксированы в ЕГАИС.
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Как устроен и работает УТМ</h2>
+					
+					<h3>Механика взаимодействия</h3>
+					<p>УТМ работает как посредник между вашей торговой системой (например, САБИ Ритейл) и ЕГАИС:</p>
+					
+					<div class="integration-diagram">
+						<div class="integration-flow">
+							<div class="integration-block">
+								<div class="block-title">САБИ Ритейл</div>
+								<div class="block-subtitle">Торговая система</div>
+								<ul class="block-features">
+									<li>Формирует документы</li>
+									<li>XML-накладные</li>
+									<li>Акты списания</li>
+									<li>Отчеты о продажах</li>
+								</ul>
+							</div>
+							
+							<div class="integration-arrow">
+								<div class="arrow-label">XML-документы</div>
+								<div class="arrow">→</div>
+							</div>
+							
+							<div class="integration-block">
+								<div class="block-title">УТМ</div>
+								<div class="block-subtitle">Посредник</div>
+								<ul class="block-features">
+									<li>Получает документы</li>
+									<li>Подписывает ЭЦП</li>
+									<li>Отправляет в ЕГАИС</li>
+									<li>Возвращает ответы</li>
+								</ul>
+							</div>
+							
+							<div class="integration-arrow">
+								<div class="arrow-label">HTTPS-протокол</div>
+								<div class="arrow">→</div>
+							</div>
+							
+							<div class="integration-block">
+								<div class="block-title">ЕГАИС</div>
+								<div class="block-subtitle">Госсистема</div>
+								<ul class="block-features">
+									<li>Обрабатывает документы</li>
+									<li>Ведет учет алкоголя</li>
+									<li>Отправляет подтверждения</li>
+									<li>Контролирует оборот</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="process-steps">
+						<h4>Процесс обмена документами:</h4>
+						<div class="steps-grid">
+							<div class="step">
+								<div class="step-number">1</div>
+								<div class="step-content">
+									<strong>САБИ Ритейл формирует документ</strong>
+									<p>Создание накладной в формате XML</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-number">2</div>
+								<div class="step-content">
+									<strong>Документ передается в УТМ</strong>
+									<p>Локальная передача данных</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-number">3</div>
+								<div class="step-content">
+									<strong>УТМ отправляет документ в ЕГАИС</strong>
+									<p>Защищенная передача через интернет</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-number">4</div>
+								<div class="step-content">
+									<strong>ЕГАИС обрабатывает и отвечает</strong>
+									<p>Обработка документа и создание ответа</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-number">5</div>
+								<div class="step-content">
+									<strong>Ответ передается обратно в САБИ</strong>
+									<p>Подтверждение операции</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<h3>Принцип обмена XML-документами</h3>
+					<p>Все документы между системой и ЕГАИС обмениваются в формате XML. Это обеспечивает стандартизированный и структурированный способ передачи данных.</p>
+				</section>
+
+				<section>
+					<h2>Где и в каких случаях используется УТМ</h2>
+					<p>УТМ используется во всех операциях, связанных с оборотом алкогольной продукции:</p>
+					
+					<ul>
+						<li><strong>Приёмка товара:</strong> подтверждение поступления алкоголя от поставщика</li>
+						<li><strong>Продажа:</strong> фиксация факта продажи алкоголя конечному потребителю</li>
+						<li><strong>Списание:</strong> удаление из оборота испорченной или возвращённой продукции</li>
+						<li><strong>Перемещение:</strong> перевод товара между складами или торговыми точками</li>
+					</ul>
+
+					<p>Во всех этих случаях УТМ обеспечивает передачу соответствующих документов в ЕГАИС.</p>
+				</section>
+
+				<section>
+					<h2>Установка, настройка и запуск УТМ: пошаговая инструкция</h2>
+					
+					<h3>Шаг 1: Подготовка</h3>
+					<ul>
+						<li>Убедитесь, что у вас есть электронная подпись (ЭЦП), зарегистрированная в ЕГАИС</li>
+						<li>Подключите USB-носитель с ЭЦП к компьютеру</li>
+					</ul>
+
+					<h3>Шаг 2: Скачивание и установка УТМ</h3>
+					<ol>
+						<li>Перейдите на официальный сайт ЕГАИС и скачайте установочный файл УТМ</li>
+						<li>Запустите установку от имени администратора</li>
+						<li>Следуйте инструкциям установщика</li>
+					</ol>
+
+					<h3>Шаг 3: Настройка УТМ</h3>
+					<ol>
+						<li>После установки откройте домашнюю страницу УТМ (обычно доступна по адресу <code>http://localhost:8080</code>)</li>
+						<li>Убедитесь, что УТМ распознаёт вашу ЭЦП</li>
+						<li>Настройте параметры соединения с САБИ Ритейл</li>
+					</ol>
+
+					<h3>Шаг 4: Запуск УТМ</h3>
+					<ul>
+						<li>Убедитесь, что УТМ запущен и работает в фоновом режиме</li>
+						<li>Проверьте, что САБИ Ритейл успешно взаимодействует с УТМ</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Как проверить корректную работу УТМ</h2>
+					<ul>
+						<li>Откройте домашнюю страницу УТМ и убедитесь, что статус соединения с ЕГАИС активен</li>
+						<li>Проверьте, что документы успешно отправляются и принимаются</li>
+						<li>Убедитесь, что нет ошибок в логах УТМ</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Частые ошибки и их устранение</h2>
+					
+					<h3>Ошибка: УТМ не запускается</h3>
+					<p><strong>Возможные причины:</strong></p>
+					<ul>
+						<li>Не подключен USB-носитель с ЭЦП</li>
+						<li>Истёк срок действия сертификата ЭЦП</li>
+						<li>Конфликт с антивирусным программным обеспечением</li>
+					</ul>
+
+					<p><strong>Решение:</strong></p>
+					<ul>
+						<li>Проверьте подключение ЭЦП и срок действия сертификата</li>
+						<li>Добавьте УТМ в исключения антивируса</li>
+						<li>Перезапустите УТМ от имени администратора</li>
+					</ul>
+
+					<h3>Ошибка: Нет связи с ЕГАИС</h3>
+					<p><strong>Возможные причины:</strong></p>
+					<ul>
+						<li>Проблемы с интернет-соединением</li>
+						<li>Блокировка портов брандмауэром</li>
+					</ul>
+
+					<p><strong>Решение:</strong></p>
+					<ul>
+						<li>Проверьте интернет-соединение</li>
+						<li>Убедитесь, что порты, используемые УТМ, не заблокированы</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Особенности использования на разных операционных системах</h2>
+					
+					<h3>Windows</h3>
+					<ul>
+						<li>Установка УТМ проста и поддерживается официально</li>
+						<li>Убедитесь, что у вас установлены все необходимые драйверы для ЭЦП</li>
+					</ul>
+
+					<h3>Linux</h3>
+					<ul>
+						<li>Установка может потребовать дополнительных настроек и знаний</li>
+						<li>Рекомендуется использовать Windows для упрощения процесса</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Роль УТМ в цепочке товарооборота в САБИ Ритейл</h2>
+					<p>УТМ является ключевым компонентом в обеспечении легального оборота алкогольной продукции:</p>
+					
+					<ul>
+						<li><strong>Приёмка товара:</strong> УТМ передаёт данные о поступлении алкоголя в ЕГАИС</li>
+						<li><strong>Хранение и учёт:</strong> САБИ Ритейл отслеживает остатки и движения товара</li>
+						<li><strong>Продажа:</strong> УТМ фиксирует факт продажи в ЕГАИС</li>
+						<li><strong>Списание и возврат:</strong> УТМ передаёт соответствующие документы в ЕГАИС</li>
+					</ul>
+
+					<blockquote>
+						Таким образом, УТМ обеспечивает прозрачность и законность всех операций с алкогольной продукцией в вашей торговой системе.
+					</blockquote>
+
+					<div class="checklist">
+						<h4>Важное напоминание:</h4>
+						<ul>
+							<li>Регулярно обновляйте УТМ для обеспечения стабильной работы</li>
+							<li>Следите за сроками действия сертификатов ЭЦП</li>
+							<li>Проверяйте логи УТМ на наличие ошибок</li>
+							<li>Обеспечьте стабильное интернет-соединение</li>
+							<li>Делайте резервные копии настроек УТМ</li>
+						</ul>
+					</div>
+				</section>
+
+			</article>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<span>© 2024 Atlantis Style. Все права защищены.</span>
+			</div>
+		</footer>
+	</div>
+
+	<nav class="section-nav">
+		<button class="section-nav__button section-nav__button--prev" id="prev-section">&laquo; Назад</button>
+		<button class="section-nav__button section-nav__button--next" id="next-section">Далее &raquo;</button>
+	</nav>
+
+</body>
+
+</html>
