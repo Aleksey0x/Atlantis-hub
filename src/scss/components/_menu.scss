@@ -17,6 +17,16 @@ html {
 
 	&__item {
 		// Стили для элемента списка навигации
+		position: relative;
+
+		// Выпадающий пункт меню
+		&--dropdown {
+			position: relative;
+
+			&:hover .navigation__dropdown {
+				display: block;
+			}
+		}
 	}
 
 	&__link {
@@ -31,6 +41,62 @@ html {
 			background-color: #e5e5e5;
 			border-left: 1px solid black;
 		}
+
+		// Стили для основной ссылки выпадающего меню
+		&--dropdown {
+			position: relative;
+			cursor: pointer;
+			
+			&:hover {
+				background-color: #f0f0f0;
+			}
+		}
+	}
+
+	// Стрелочка рядом с выпадающим пунктом
+	&__arrow {
+		margin-left: 0.5em;
+		font-size: 0.8em;
+		transition: transform 0.2s ease;
+		display: inline-block;
+	}
+
+	// Выпадающее меню
+	&__dropdown {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background: #ffffff;
+		border: 1px solid #e5e5e5;
+		border-radius: 4px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		min-width: 200px;
+		z-index: 1000;
+		list-style: none;
+		margin: 0;
+		padding: 0.5em 0;
+
+		.navigation__item {
+			margin: 0;
+		}
+
+		.navigation__link {
+			display: block;
+			padding: 0.5em 1em;
+			margin: 0;
+			white-space: nowrap;
+			transition: background-color 0.2s ease;
+
+			&:hover {
+				background-color: #f8f9fa;
+			}
+		}
+	}
+
+	// Поворачиваем стрелочку при наведении
+	&__item--dropdown:hover &__arrow {
+		transform: rotate(180deg);
 	}
 
 	&__toggle {
@@ -52,6 +118,47 @@ html {
 	align-items: center;
 	justify-content: center;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	}
+}
+
+// Responsive styles for mobile devices
+@media (max-width: 768px) {
+	.navigation {
+		&__dropdown {
+			// На мобильных устройствах выпадающее меню занимает больше места
+			min-width: 250px;
+			left: 50%;
+			transform: translateX(-50%);
+			
+			// Увеличиваем отступы для удобства нажатия
+			.navigation__link {
+				padding: 0.75em 1em;
+				font-size: 1.1em;
+			}
+		}
+		
+		// Убеждаемся, что hover работает правильно на сенсорных экранах
+		&__item--dropdown {
+			&:hover .navigation__dropdown {
+				display: none; // Отключаем CSS hover на мобильных
+			}
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.navigation {
+		&__dropdown {
+			// На очень маленьких экранах делаем меню ещё шире
+			min-width: 280px;
+			left: 50%;
+			transform: translateX(-50%);
+			
+			.navigation__link {
+				padding: 1em;
+				font-size: 1.1em;
+			}
+		}
 	}
 }
 

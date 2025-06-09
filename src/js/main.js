@@ -324,10 +324,148 @@ function initializeActiveNavigation() {
 	});
 }
 
+/**
+ * Инициализация функциональности выпадающего меню
+ * Обеспечивает работу выпадающих пунктов меню с поддержкой кликов и клавиатуры
+ */
+function initializeDropdownMenu() {
+	// Получаем все выпадающие пункты меню
+	const dropdownItems = document.querySelectorAll('.navigation__item--dropdown');
+
+	if (!dropdownItems.length) {
+		console.log('Выпадающие пункты меню не найдены.');
+		return;
+	}
+
+	// Определяем, работаем ли мы на сенсорном устройстве
+	const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+	dropdownItems.forEach(item => {
+		const dropdownLink = item.querySelector('.navigation__link--dropdown');
+		const dropdownMenu = item.querySelector('.navigation__dropdown');
+		const arrow = item.querySelector('.navigation__arrow');
+
+		if (!dropdownLink || !dropdownMenu) return;
+
+		// Переменная для отслеживания состояния меню
+		let isOpen = false;
+
+		/**
+		 * Открывает выпадающее меню
+		 */
+		function openDropdown() {
+			dropdownMenu.style.display = 'block';
+			isOpen = true;
+			if (arrow) {
+				arrow.style.transform = 'rotate(180deg)';
+			}
+			dropdownLink.setAttribute('aria-expanded', 'true');
+		}
+
+		/**
+		 * Закрывает выпадающее меню
+		 */
+		function closeDropdown() {
+			dropdownMenu.style.display = 'none';
+			isOpen = false;
+			if (arrow) {
+				arrow.style.transform = 'rotate(0deg)';
+			}
+			dropdownLink.setAttribute('aria-expanded', 'false');
+		}
+
+		/**
+		 * Переключает состояние выпадающего меню
+		 */
+		function toggleDropdown() {
+			if (isOpen) {
+				closeDropdown();
+			} else {
+				// Закрываем все другие открытые меню
+				dropdownItems.forEach(otherItem => {
+					if (otherItem !== item) {
+						const otherMenu = otherItem.querySelector('.navigation__dropdown');
+						const otherArrow = otherItem.querySelector('.navigation__arrow');
+						const otherLink = otherItem.querySelector('.navigation__link--dropdown');
+						if (otherMenu) {
+							otherMenu.style.display = 'none';
+							if (otherArrow) otherArrow.style.transform = 'rotate(0deg)';
+							if (otherLink) otherLink.setAttribute('aria-expanded', 'false');
+						}
+					}
+				});
+				openDropdown();
+			}
+		}
+
+		// Обработчик клика по основной ссылке
+		dropdownLink.addEventListener('click', (e) => {
+			e.preventDefault();
+			toggleDropdown();
+		});
+
+		// Обработчик нажатия клавиш для доступности
+		dropdownLink.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
+				toggleDropdown();
+			} else if (e.key === 'Escape') {
+				closeDropdown();
+			}
+		});
+
+		// Обработчики наведения мыши (только для не-сенсорных устройств)
+		if (!isTouchDevice) {
+			item.addEventListener('mouseenter', () => {
+				if (!isOpen) {
+					openDropdown();
+				}
+			});
+
+			item.addEventListener('mouseleave', () => {
+				if (isOpen) {
+					closeDropdown();
+				}
+			});
+		}
+
+		// Закрытие меню при клике в любом другом месте
+		document.addEventListener('click', (e) => {
+			if (!item.contains(e.target)) {
+				closeDropdown();
+			}
+		});
+
+		// Для сенсорных устройств - закрытие при прикосновении к любому другому месту
+		if (isTouchDevice) {
+			document.addEventListener('touchstart', (e) => {
+				if (!item.contains(e.target)) {
+					closeDropdown();
+				}
+			});
+		}
+
+		// Инициализация атрибутов доступности
+		dropdownLink.setAttribute('aria-haspopup', 'true');
+		dropdownLink.setAttribute('aria-expanded', 'false');
+		dropdownMenu.setAttribute('role', 'menu');
+
+		// Добавляем атрибуты для элементов внутри выпадающего меню
+		const dropdownLinks = dropdownMenu.querySelectorAll('.navigation__link');
+		dropdownLinks.forEach(link => {
+			link.setAttribute('role', 'menuitem');
+		});
+	});
+
+	console.log('Функциональность выпадающего меню инициализирована:', dropdownItems.length, 'элементов', 
+		isTouchDevice ? '(сенсорное устройство)' : '(десктоп)');
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 	initializeSlideout();
 	initializeSectionNavigation();
 	initializeActiveNavigation();
+	initializeDropdownMenu(); // Добавляем инициализацию выпадающего меню
 });
 
 // Main JavaScript file for the Atlantis-hub project
