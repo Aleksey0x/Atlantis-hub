@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Архитектура КЭП - Atlantis-hub</title>
+  <script type="module" crossorigin src="../assets/js/vendor-CHECDXl6.js"></script>
+  <script type="module" crossorigin src="../assets/js/main-DUCJ-Mk5.js"></script>
+  <link rel="stylesheet" crossorigin href="../assets/css/main-DwA8jU0K.css">
+</head>
+
+<body>
+
+	<nav id="menu" class="navigation">
+		<ul class="navigation__list">
+			<li class="navigation__item">
+				<a class="navigation__link" href="../index.html">
+					Цифровая экосистема
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="types.html">
+					Типы Онлайн-Касс
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="universal-transport-module.html">
+					УТМ
+				</a>
+			</li>
+			<li class="navigation__item navigation__item--dropdown">
+				<a class="navigation__link navigation__link--dropdown" href="#" onclick="return false;">
+					Инфраструктура ЭП
+					<span class="navigation__arrow">▼</span>
+				</a>
+				<ul class="navigation__dropdown">
+					<li class="navigation__item">
+						<a class="navigation__link" href="electronic-signature.html">
+							Электронная подпись
+						</a>
+					</li>
+					<li class="navigation__item">
+						<a class="navigation__link" href="kep-architecture.html">
+							Архитектура КЭП
+						</a>
+					</li>
+					<li class="navigation__item">
+						<a class="navigation__link" href="crypto.html">
+							Криптоносители
+						</a>
+					</li>
+					<li class="navigation__item">
+						<a class="navigation__link" href="cryptopro.html">
+							CryptoPro CSP
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="ekvajring.html">
+					Эквайринг
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="fn.html">
+					Фискальный накопитель
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="pos.html">
+					POS-терминалы
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="scanner.html">
+					Сканеры штрихкодов
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="scales.html">
+					Торговые весы
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" href="printer.html">
+					Принтеры этикеток
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="navigation__toggle-wrapper">
+		<button class="navigation__toggle" id="menu-button">
+			<svg class="icon icon--menu" width="36" height="36">
+				<use xlink:href="../assets/images/sprite-C5XqCnJ3.svg#menu"></use>
+			</svg>
+		</button>
+	</div>
+
+	<div id="panel">
+
+		<header class="article-header">
+			<div class="container">
+				<h1 class="headline">Архитектура КЭП: как работают токены и криптопровайдеры</h1>
+				<p class="subheadline">Полный разбор взаимодействия криптоносителей, криптопровайдеров и приложений. 
+					Как обеспечивается безопасность подписи от создания ключей до проверки документов.
+				</p>
+				<div class="meta">
+					<div>
+						<span class="author">
+							Atlantis
+						</span>
+					</div>
+					<div>
+						<span class="dot">•</span>
+						<time datetime="2024-06-01">21 мая 2025</time>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<article class="container">
+				<section>
+					<h2>Основные компоненты</h2>
+					<div class="lead">
+						<p>Система электронной подписи состоит из трёх ключевых компонентов, которые работают в связке 
+							для обеспечения безопасности и юридической значимости цифровых документов.</p>
+					</div>
+					<ul>
+						<li><strong>КЭП (квалифицированная электронная подпись)</strong> — цифровой автограф, 
+							приравненный к рукописной подписи.</li>
+						<li><strong>Токен (Rutoken, JaCarta и др.)</strong> — защищённое устройство (USB или карта), 
+							где хранится закрытый ключ.</li>
+						<li><strong>Криптопровайдер (CryptoPro CSP, ViPNet CSP и др.)</strong> — программный слой, 
+							связывающий приложения с токеном и обеспечивающий криптографию.</li>
+					</ul>
+					<blockquote>
+						Все три компонента работают как единая экосистема: токен защищает ключи, криптопровайдер 
+						обеспечивает операции, а КЭП придаёт документам юридическую силу.
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Хранение и защита ключей</h2>
+					<p>Архитектура системы построена на принципе максимальной защиты закрытого ключа:</p>
+					
+					<ul>
+						<li><strong>Закрытый ключ никогда не выходит из токена.</strong></li>
+						<li><strong>Криптопровайдер обеспечивает доступ, но не копирует ключ на компьютер.</strong></li>
+						<li><strong>Открытый ключ вместе с сертификатом хранится локально или на сервере.</strong></li>
+						<li><strong>Такой подход предотвращает утечку и подделку подписи.</strong></li>
+					</ul>
+
+					<blockquote>
+						Принцип "ключ не покидает токен" делает систему практически неуязвимой для большинства 
+						видов кибератак и обеспечивает высочайший уровень безопасности.
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Как приложения получают доступ к подписи</h2>
+					<p>Процесс интеграции приложений с системой электронной подписи происходит через стандартизированные интерфейсы:</p>
+					
+					<ol>
+						<li><strong>Пользователь устанавливает токен-драйвер и криптопровайдер</strong> (например, CryptoPro CSP).</li>
+						<li><strong>При запуске приложения</strong> (1С, СБИС, Госуслуги) оно запрашивает доступ к криптопровайдеру.</li>
+						<li><strong>При вставке токена приложение «видит» его</strong> через провайдер.</li>
+						<li><strong>Браузер или программа вызывает диалог ввода PIN-кода</strong> для доступа к ключу.</li>
+					</ol>
+
+					<p><strong>Таким образом связь приложения с токеном организована через криптопровайдер и защищена PIN-ом.</strong></p>
+
+					<blockquote>
+						Стандартизированный подход позволяет любому приложению работать с любым сертифицированным 
+						токеном через единый интерфейс криптопровайдера.
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Что делает криптопровайдер</h2>
+					<p>Криптопровайдер выполняет роль универсального посредника между приложениями и криптографическими устройствами:</p>
+					
+					<ul>
+						<li><strong>Обнаруживает подключённые токены</strong> (напр. Rutoken S / Lite поддерживаются CryptoPro CSP)</li>
+						<li><strong>Проверяет, введён ли PIN.</strong></li>
+						<li><strong>Выполняет вычисление подписи и проверку подписи, а также хеширование и шифрование.</strong></li>
+						<li><strong>Реализует протоколы безопасности</strong> (PIN-блокировки, тайм-ауты).</li>
+					</ul>
+
+					<blockquote>
+						Криптопровайдер — это "переводчик" между обычными программами и специализированными 
+						криптографическими устройствами, обеспечивающий совместимость и безопасность.
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Как подписывается документ</h2>
+					<p>Процесс создания электронной подписи происходит в несколько защищённых этапов:</p>
+					
+					<ol>
+						<li><strong>Приложение (например, saby, 1С) генерирует хеш документа</strong> — уникальное цифровое описание.</li>
+						<li><strong>Хеш передаётся криптопровайдеру.</strong></li>
+						<li><strong>Провайдер запрашивает PIN</strong> (если он ещё не введён).</li>
+						<li><strong>Провайдер посылает хеш на токен</strong> — устройство выполняет подпись ключом.</li>
+						<li><strong>Провайдер возвращает подписанный хеш и сертификат</strong> обратно в приложение.</li>
+						<li><strong>Подпись вставляется в документ</strong> — готово.</li>
+					</ol>
+
+					<blockquote>
+						<strong>Весь процесс происходит в безопасности</strong> — закрытый ключ никогда не покидает токен.
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Процесс проверки подписи</h2>
+					<p>Верификация электронной подписи — обратный процесс, подтверждающий подлинность документа:</p>
+					
+					<ol>
+						<li><strong>Получатель получает подписанный документ и прикреплённый сертификат.</strong></li>
+						<li><strong>Проверяет, что сертификат действителен и не отозван.</strong></li>
+						<li><strong>Хешируется документ</strong> — сравнивается с подписанным хешем.</li>
+						<li><strong>Если совпало — документ не менялся, подпись валидна.</strong></li>
+					</ol>
+
+					<blockquote>
+						Таким образом обеспечивается <strong>конфиденциальность</strong>, <strong>целостность</strong> 
+						и <strong>подтверждение личности</strong>.
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Цепочка работы между компонентами</h2>
+					<table style="width:100%;border-collapse:collapse;margin:1.5em 0;font-size:1rem;">
+						<thead style="background:#fafafa;border-bottom:1px solid #e5e5e5;">
+							<tr>
+								<th style="text-align:left;padding:0.5em 1em;">Шаг</th>
+								<th style="text-align:left;padding:0.5em 1em;">Что происходит</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="padding:0.5em 1em;"><strong>Генерация ключей</strong></td>
+								<td style="padding:0.5em 1em;">Создаётся на токене через криптопровайдер</td>
+							</tr>
+							<tr>
+								<td style="padding:0.5em 1em;"><strong>Хранение ключей</strong></td>
+								<td style="padding:0.5em 1em;">Только на токене, закрытый ключ не копируется</td>
+							</tr>
+							<tr>
+								<td style="padding:0.5em 1em;"><strong>Запрос подписи</strong></td>
+								<td style="padding:0.5em 1em;">Приложение → криптопровайдер → токен → PIN</td>
+							</tr>
+							<tr>
+								<td style="padding:0.5em 1em;"><strong>Подпись документа</strong></td>
+								<td style="padding:0.5em 1em;">Хеш идёт на токен → токен подписывает → подписанный хеш возвращается</td>
+							</tr>
+							<tr>
+								<td style="padding:0.5em 1em;"><strong>Проверка подписи</strong></td>
+								<td style="padding:0.5em 1em;">Получатель проверяет подписанный хеш и сертификат через провайдер</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Почему это важно для бизнеса</h2>
+					<div class="lead">
+						<p>Правильная архитектура КЭП обеспечивает надёжную защиту и юридическую значимость 
+							электронного документооборота.</p>
+					</div>
+					
+					<ul>
+						<li><strong>Безопасность:</strong> закрытый ключ никогда не покидает токен.</li>
+						<li><strong>Юридическая сила:</strong> КЭП соответствует требованиям закона.</li>
+						<li><strong>Удобство:</strong> работает напрямую в 1С, СБИС, Госуслуги и других системах.</li>
+						<li><strong>Гибкость:</strong> смена ПК не влияет на работоспособность токена.</li>
+					</ul>
+
+					<blockquote>
+						В современных условиях понимание архитектуры КЭП — это основа для правильного 
+						внедрения и использования электронной подписи в бизнес-процессах.
+					</blockquote>
+				</section>
+
+			</article>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<span>© 2024 Atlantis Style. Все права защищены.</span>
+			</div>
+		</footer>
+	</div>
+
+	<nav class="section-nav">
+		<button class="section-nav__button section-nav__button--prev" id="prev-section">&laquo; Назад</button>
+		<button class="section-nav__button section-nav__button--next" id="next-section">Далее &raquo;</button>
+	</nav>
+
+</body>
+
+</html> 
